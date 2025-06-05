@@ -1,0 +1,20 @@
+services:
+  php_valid:
+    build: .
+    container_name: php_valid
+    environment:
+      - VALIDATION=true
+    volumes:
+      - ./www:/var/www/html
+    ports:
+      - "127.0.0.1:8080:80"
+
+  php_novalid:
+    build: .
+    container_name: php_novalid
+    environment:
+      - VALIDATION=false
+    volumes:
+      - ./www:/var/www/html
+    ports:
+      - "127.0.0.1:8081:80"
